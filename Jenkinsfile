@@ -2,19 +2,13 @@ pipeline {
     agent any
 
     triggers {
-        pollSCM('* * * * *')   // auto check every minute
+        pollSCM('* * * * *')
     }
 
     stages {
-        stage('Clone Repository') {
-            steps {
-               git 'https://github.com/raashid721/log-analyzer-pipeline.git'
-            }
-        }
-
         stage('Run Python Script') {
             steps {
-                sh 'python3 analyzer.py'
+                bat '"C:\\Users\\abdul\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" analyzer.py'
             }
         }
 
